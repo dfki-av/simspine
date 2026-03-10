@@ -19,3 +19,19 @@ Official repository for the CVPR 2026 workshop paper "SIMSPINE: A Biomechanics-A
 More details to be added soon. For now, please refer to the [arXiv preprint](https://arxiv.org/abs/2602.20792) for the full paper and supplementary materials.
 
 
+## Roadmap
+
+- [ ] Release SIMSPINE dataset on [HuggingFace](https://huggingface.co/datasets/dfki-av/simspine)
+- [ ] Release ONNX models for inference via the [SpinePose library](https://github.com/dfki-av/spinepose)
+  - [ ] 2D Models
+    - [ ] SpinePose-SIMSPINE (small, medium, large)
+    - [ ] HRNet-SIMSPINE (w32)
+    - [ ] RTMPose-SIMSPINE (medium)
+    - [ ] ViTPose-SIMSPINE (base)
+  - [ ] 2D-to-3D Lifting Model
+- [ ] Release Pytorch checkpoints and evaluation config files
+- [ ] Release evaluation code
+  - [ ] 2D Pose Estimation
+  - [ ] 2D-to-3D Lifting
+  - [ ] Multiview 3D Triangulation 
+- [ ] Release training code
