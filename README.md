@@ -4,6 +4,7 @@
 
 [![Home](https://img.shields.io/badge/Project-Homepage-pink.svg)](https://saifkhichi.com/research/simspine/)
 [![arXiv](https://img.shields.io/badge/arXiv-2602.20792-B31B1B.svg)](https://arxiv.org/abs/2602.20792)
+[![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-1f6feb.svg)](https://huggingface.co/datasets/dfki-av/simspine)
 
 ![SIMSPINE Teaser](teaser.gif)
 </div>
@@ -14,10 +15,22 @@
 
 ## Overview
 
-Official repository for the CVPR 2026 workshop paper "SIMSPINE: A Biomechanics-Aware Simulation Framework for 3D Spine Motion Annotation and Benchmarking" by Muhammad Saif Ullah Khan and Didier Stricker.
+Official repository for the CVPR 2026 paper "SIMSPINE: A Biomechanics-Aware Simulation Framework for 3D Spine Motion Annotation and Benchmarking" by Muhammad Saif Ullah Khan and Didier Stricker.
 
-More details to be added soon. For now, please refer to the [arXiv preprint](https://arxiv.org/abs/2602.20792) for the full paper and supplementary materials.
+SIMSPINE augments Human3.6M with spine-aware 3D annotations using a biomechanics-aware pipeline that combines multi-view spinal detection, robust triangulation, marker merging, subject-scaled OpenSim inverse kinematics, and virtual vertebral markers. The resulting benchmark contains 2.14M frames from 7 subjects across 15 actions, and provides 15 spine-centric keypoints together with vertebral rotational parameters.
 
+The current release is organized around three benchmark tasks:
+- 2D spine keypoint estimation from RGB
+- Multi-view 3D spine reconstruction
+- Monocular 2D-to-3D lifting
+
+Selected paper-level results:
+- Indoor 2D performance improves from 0.63 to 0.80 AUC after fine-tuning with SIMSPINE
+- Outdoor spine tracking improves from 0.91 to 0.93 APS
+- Fine-tuned multi-view triangulation reaches 31.82 mm MPJPE and 29.53 mm P-MPJPE
+- Full-body monocular lifting outperforms spine-only lifting, reaching 16.28 mm P-MPJPE with detected 2D input
+
+For the full paper, figures, and project summary, please refer to the [project homepage](https://saifkhichi.com/research/simspine/) and the [arXiv preprint](https://arxiv.org/abs/2602.20792).
 
 ## Roadmap
 
@@ -33,5 +46,5 @@ More details to be added soon. For now, please refer to the [arXiv preprint](htt
 - [ ] Release evaluation code
   - [ ] 2D Pose Estimation
   - [ ] 2D-to-3D Lifting
-  - [ ] Multiview 3D Triangulation 
+  - [ ] Multiview 3D Triangulation
 - [ ] Release training code
