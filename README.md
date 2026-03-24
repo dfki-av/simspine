@@ -30,7 +30,7 @@ Official repository for the CVPR 2026 paper "SIMSPINE: A Biomechanics-Aware Simu
 
 ### Release Notes
 
-- **2026-03-24**: Released the SIMSPINE simulation framework under `src/simspine/data_generation/` and added end-to-end dataset build script `scripts/create_dataset.sh`.
+- **2026-03-24**: Released the SIMSPINE [simulation framework](./src/simspine/data_generation), added end-to-end dataset build script `scripts/create_dataset.sh`, and released the SIMSPINE dataset on [HuggingFace](https://huggingface.co/datasets/dfki-av/simspine)
 - **2026-03-23**: SpinePose-SIMSPINE ONNX models for 2D pose estimation released via the [SpinePose inference library](https://github.com/dfki-av/spinepose) in [v2.0.1](https://github.com/dfki-av/spinepose/tree/v2.0.1)
 - **2026-03-10**: Release PyTorch checkpoints for 2D (SpinePose, ViTPose, HRNet) and 2D-to-3D lifting baselines
 
