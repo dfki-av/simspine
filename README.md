@@ -82,7 +82,16 @@ Supported tasks include:
 - 2D-to-3D pose lifting
 - spine reconstruction benchmarking
 
-More details can be found in the [dataset documentation](./docs/dataset.md).
+You can simply use the dataset via HuggingFace's `datasets` library:
+
+```python
+from datasets import load_dataset
+
+train_data = load_dataset("dfki-av/simspine", split="train").with_format("torch")
+test_data = load_dataset("dfki-av/simspine", split="test").with_format("torch")
+```
+
+SIMSPINE dataset is also available in an MMPose-compatible format under the `data/annotations` directory in the repository, and a HDF5 version of the raw annotations is available at `data/simspine/simspine.h5`. For more details, see the [dataset documentation](./docs/dataset.md).
 
 ## Benchmark Results
 
