@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<OpenSimDocument Version="40500">
+	<ScaleTool name="SpineTrack_scaled">
+		<mass>69</mass>
+		<height>-1</height>
+		<age>-1</age>
+		<notes>Unassigned</notes>
+		<GenericModelMaker>
+			<model_file>Unassigned</model_file>
+			<marker_set_file>Unassigned</marker_set_file>
+		</GenericModelMaker>
+		<ModelScaler>
+			<apply>true</apply>
+			<scaling_order> measurements manualScale</scaling_order>
+			<MeasurementSet>
+				<objects>
+					<Measurement name="torso">
+						<apply>true</apply>
+						<MarkerPairSet>
+							<objects>
+								<MarkerPair>
+									<markers> LShoulder LHip</markers>
+								</MarkerPair>
+								<MarkerPair>
+									<markers> RShoulder RHip</markers>
+								</MarkerPair>
+							</objects>
+							<groups />
+						</MarkerPairSet>
+						<BodyScaleSet>
+							<objects>
+								<BodyScale name="lumbar5">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="lumbar4">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="lumbar3">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="lumbar2">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="lumbar1">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="torso">
+									<axes> X Y Z</axes>
+								</BodyScale>
+							</objects>
+							<groups />
+						</BodyScaleSet>
+					</Measurement>
+					<Measurement name="arm">
+						<apply>true</apply>
+						<MarkerPairSet>
+							<objects>
+								<MarkerPair>
+									<markers> LShoulder LElbow</markers>
+								</MarkerPair>
+								<MarkerPair>
+									<markers> RShoulder RElbow</markers>
+								</MarkerPair>
+							</objects>
+							<groups />
+						</MarkerPairSet>
+						<BodyScaleSet>
+							<objects>
+								<BodyScale name="humerus_r">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="humerus_l">
+									<axes> X Y Z</axes>
+								</BodyScale>
+							</objects>
+							<groups />
+						</BodyScaleSet>
+					</Measurement>
+					<Measurement name="forearm">
+						<apply>true</apply>
+						<MarkerPairSet>
+							<objects>
+								<MarkerPair>
+									<markers> LElbow LWrist</markers>
+								</MarkerPair>
+								<MarkerPair>
+									<markers> RElbow RWrist</markers>
+								</MarkerPair>
+							</objects>
+							<groups />
+						</MarkerPairSet>
+						<BodyScaleSet>
+							<objects>
+								<BodyScale name="ulna_r">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="radius_r">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="hand_r">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="ulna_l">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="radius_l">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="hand_l">
+									<axes> X Y Z</axes>
+								</BodyScale>
+							</objects>
+							<groups />
+						</BodyScaleSet>
+					</Measurement>
+					<Measurement name="thigh">
+						<apply>true</apply>
+						<MarkerPairSet>
+							<objects>
+								<MarkerPair>
+									<markers> LHip LKnee</markers>
+								</MarkerPair>
+								<MarkerPair>
+									<markers> RHip RKnee</markers>
+								</MarkerPair>
+							</objects>
+							<groups />
+						</MarkerPairSet>
+						<BodyScaleSet>
+							<objects>
+								<BodyScale name="femur_r">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="patella_r">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="femur_l">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="patella_l">
+									<axes> X Y Z</axes>
+								</BodyScale>
+							</objects>
+							<groups />
+						</BodyScaleSet>
+					</Measurement>
+					<Measurement name="shank">
+						<apply>true</apply>
+						<MarkerPairSet>
+							<objects>
+								<MarkerPair>
+									<markers> LKnee LAnkle</markers>
+								</MarkerPair>
+								<MarkerPair>
+									<markers> RKnee RAnkle</markers>
+								</MarkerPair>
+							</objects>
+							<groups />
+						</MarkerPairSet>
+						<BodyScaleSet>
+							<objects>
+								<BodyScale name="tibia_r">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="tibia_l">
+									<axes> X Y Z</axes>
+								</BodyScale>
+							</objects>
+							<groups />
+						</BodyScaleSet>
+					</Measurement>
+					<Measurement name="foot">
+						<apply>true</apply>
+						<MarkerPairSet>
+							<objects>
+								<MarkerPair>
+									<markers> LHeel LBigToe</markers>
+								</MarkerPair>
+								<MarkerPair>
+									<markers> RHeel RBigToe</markers>
+								</MarkerPair>
+							</objects>
+							<groups />
+						</MarkerPairSet>
+						<BodyScaleSet>
+							<objects>
+								<BodyScale name="talus_r">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="calcn_r">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="toes_r">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="talus_l">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="calcn_l">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="toes_l">
+									<axes> X Y Z</axes>
+								</BodyScale>
+							</objects>
+							<groups />
+						</BodyScaleSet>
+					</Measurement>
+					<Measurement name="head">
+						<apply>true</apply>
+						<MarkerPairSet>
+							<objects>
+								<MarkerPair>
+									<markers> Head Nose</markers>
+								</MarkerPair>
+								<MarkerPair>
+									<markers> Head Neck</markers>
+								</MarkerPair>
+							</objects>
+							<groups />
+						</MarkerPairSet>
+						<BodyScaleSet>
+							<objects>
+								<BodyScale name="head">
+									<axes> X Y Z</axes>
+								</BodyScale>
+							</objects>
+							<groups />
+						</BodyScaleSet>
+					</Measurement>
+					<Measurement name="pelvis">
+						<apply>true</apply>
+						<MarkerPairSet>
+							<objects>
+								<MarkerPair>
+									<markers> RHip LHip</markers>
+								</MarkerPair>
+							</objects>
+							<groups />
+						</MarkerPairSet>
+						<BodyScaleSet>
+							<objects>
+								<BodyScale name="pelvis">
+									<axes> X Y Z</axes>
+								</BodyScale>
+								<BodyScale name="sacrum">
+									<axes> X Y Z</axes>
+								</BodyScale>
+							</objects>
+							<groups />
+						</BodyScaleSet>
+					</Measurement>
+				</objects>
+				<groups />
+			</MeasurementSet>
+			<ScaleSet>
+				<objects>
+					<Scale>
+						<scales> 0.94999999999999995559 0.94999999999999995559 0.94999999999999995559</scales>
+						<segment>pelvis</segment>
+						<apply>false</apply>
+					</Scale>
+					<Scale>
+						<scales> 0.8499999999999999778 0.8499999999999999778 0.8499999999999999778</scales>
+						<segment>patella_r</segment>
+						<apply>false</apply>
+					</Scale>
+					<Scale>
+						<scales> 0.8499999999999999778 0.8499999999999999778 0.8499999999999999778</scales>
+						<segment>talus_r</segment>
+						<apply>false</apply>
+					</Scale>
+					<Scale>
+						<scales> 0.8499999999999999778 0.8499999999999999778 0.8499999999999999778</scales>
+						<segment>toes_r</segment>
+						<apply>false</apply>
+					</Scale>
+					<Scale>
+						<scales> 0.8499999999999999778 0.8499999999999999778 0.8499999999999999778</scales>
+						<segment>patella_l</segment>
+						<apply>false</apply>
+					</Scale>
+					<Scale>
+						<scales> 0.8499999999999999778 0.8499999999999999778 0.8499999999999999778</scales>
+						<segment>talus_l</segment>
+						<apply>false</apply>
+					</Scale>
+					<Scale>
+						<scales> 0.8499999999999999778 0.8499999999999999778 0.8499999999999999778</scales>
+						<segment>toes_l</segment>
+						<apply>false</apply>
+					</Scale>
+					<Scale>
+						<scales> 0.80000000000000004441 0.80000000000000004441 0.80000000000000004441</scales>
+						<segment>torso</segment>
+						<apply>false</apply>
+					</Scale>
+					<Scale>
+						<scales> 0.80000000000000004441 0.80000000000000004441 0.80000000000000004441</scales>
+						<segment>head</segment>
+						<apply>false</apply>
+					</Scale>
+				</objects>
+				<groups />
+			</ScaleSet>
+			<marker_file>../Demo_SinglePerson/pose-3d/S01_Demo_SingleTrial_0-99_filt_butterworth.trc</marker_file>
+			<time_range> 0 1.6333333333333333037</time_range>
+			<preserve_mass_distribution>true</preserve_mass_distribution>
+			<output_model_file>Unassigned</output_model_file>
+			<output_scale_file>Unassigned</output_scale_file>
+		</ModelScaler>
+		<MarkerPlacer>
+			<apply>false</apply>
+			<IKTaskSet>
+				<objects>
+					<IKMarkerTask name="Nose">
+						<apply>true</apply>
+						<weight>0.10000000000000001</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="Head">
+						<apply>true</apply>
+						<weight>0.10000000000000001</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="Neck">
+						<apply>true</apply>
+						<weight>1</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="LShoulder">
+						<apply>true</apply>
+						<weight>2</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="RShoulder">
+						<apply>true</apply>
+						<weight>2</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="LElbow">
+						<apply>true</apply>
+						<weight>1</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="RElbow">
+						<apply>true</apply>
+						<weight>1</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="LWrist">
+						<apply>true</apply>
+						<weight>1</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="RWrist">
+						<apply>true</apply>
+						<weight>1</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="Hip">
+						<apply>true</apply>
+						<weight>1</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="LHip">
+						<apply>true</apply>
+						<weight>2</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="RHip">
+						<apply>true</apply>
+						<weight>2</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="LKnee">
+						<apply>true</apply>
+						<weight>1</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="RKnee">
+						<apply>true</apply>
+						<weight>1</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="LAnkle">
+						<apply>true</apply>
+						<weight>1</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="RAnkle">
+						<apply>true</apply>
+						<weight>1</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="LBigToe">
+						<apply>true</apply>
+						<weight>1</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="LSmallToe">
+						<apply>true</apply>
+						<weight>1</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="LHeel">
+						<apply>true</apply>
+						<weight>1</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="RBigToe">
+						<apply>true</apply>
+						<weight>1</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="RSmallToe">
+						<apply>true</apply>
+						<weight>1</weight>
+					</IKMarkerTask>
+					<IKMarkerTask name="RHeel">
+						<apply>true</apply>
+						<weight>1</weight>
+					</IKMarkerTask>
+					<IKCoordinateTask name="pelvis_tilt">
+						<apply>true</apply>
+						<weight>0</weight>
+						<value_type>default_value</value_type>
+						<value>0</value>
+					</IKCoordinateTask>
+					<IKCoordinateTask name="pelvis_list">
+						<apply>true</apply>
+						<weight>0.1</weight>
+						<value_type>default_value</value_type>
+						<value>0</value>
+					</IKCoordinateTask>
+					<IKCoordinateTask name="ankle_angle_r">
+						<apply>true</apply>
+						<weight>0</weight>
+						<value_type>manual_value</value_type>
+						<value>0</value>
+					</IKCoordinateTask>
+					<IKCoordinateTask name="ankle_angle_l">
+						<apply>true</apply>
+						<weight>0</weight>
+						<value_type>manual_value</value_type>
+						<value>0</value>
+					</IKCoordinateTask>
+					<IKCoordinateTask name="L5_S1_Flex_Ext">
+						<apply>true</apply>
+						<weight>0.1</weight>
+						<value_type>default_value</value_type>
+						<value>0</value>
+					</IKCoordinateTask>
+				</objects>
+				<groups />
+			</IKTaskSet>
+			<marker_file>../Demo_SinglePerson/pose-3d/S01_Demo_SingleTrial_0-99_filt_butterworth.trc</marker_file>
+			<coordinate_file>Unassigned</coordinate_file>
+			<time_range> 0.016666699999999999571 0.10000000000000000555</time_range>
+			<output_motion_file>Unassigned</output_motion_file>
+			<output_model_file>D:\softs\github_david\pose2sim\Pose2Sim\OpenSim_Setup\..\S00_Demo_Session\S00_P00_SingleParticipant\S00_P00_OpenSim\Model_Pose2Sim_S00_P00_Halpe26_scaled.osim</output_model_file>
+			<output_marker_file>Unassigned</output_marker_file>
+			<max_marker_movement>-1</max_marker_movement>
+		</MarkerPlacer>
+	</ScaleTool>
+</OpenSimDocument>

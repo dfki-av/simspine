@@ -19,7 +19,8 @@
 
 Official repository for the CVPR 2026 paper "SIMSPINE: A Biomechanics-Aware Simulation Framework for 3D Spine Motion Annotation and Benchmarking" by Muhammad Saif Ullah Khan and Didier Stricker.
 
-- [SIMSPINE Benchmark Dataset](#simspine-benchmark-dataset)
+- [Simulation Framework](#simspine-simulation-framework)
+- [SIMSPINE Dataset](#simspine-benchmark-dataset)
 - [Benchmark Results](#benchmark-results)
 - [Limitations and Intended Use](#limitations-and-intended-use)
 - [Licensing](#licensing)
@@ -29,12 +30,41 @@ Official repository for the CVPR 2026 paper "SIMSPINE: A Biomechanics-Aware Simu
 
 ### Release Notes
 
+- **2026-03-24**: Released the SIMSPINE simulation framework under `src/simspine/data_generation/` and added end-to-end dataset build script `scripts/create_dataset.sh`.
 - **2026-03-23**: SpinePose-SIMSPINE ONNX models for 2D pose estimation released via the [SpinePose inference library](https://github.com/dfki-av/spinepose) in [v2.0.1](https://github.com/dfki-av/spinepose/tree/v2.0.1)
 - **2026-03-10**: Release PyTorch checkpoints for 2D (SpinePose, ViTPose, HRNet) and 2D-to-3D lifting baselines
 
-## SIMSPINE Benchmark Dataset
+## Simulation Framework
 
-SIMSPINE is a dataset of additional 3D spine keypoint annotations derived from Human3.6M. It augments Human3.6M with spine-aware labels using a biomechanics-aware pipeline that combines multi-view spinal detection, robust triangulation, marker merging, subject-scaled OpenSim inverse kinematics, and virtual vertebral markers.
+SIMSPINE framework provides an end-to-end data-generation pipeline that creates spine-augmented annotations from Human3.6M markers and predicted spine pseudo-markers.
+
+The framework in `src/simspine/data_generation/` follows six steps:
+1. Merge predicted pseudo-markers* with known Human3.6M body markers (`1_merge_predictions.py`).
+2. Create subject-scaled OpenSim models (`2_scale_model.py`).
+3. Run inverse kinematics to generate motion trajectories (`3_kinematics.py`).
+4. Convert simulated OpenSim marker outputs (`.sto`) to TRC (`4_simulate_markers.py`).
+5. Merge simulated spine/body markers into unified trajectories (`5_merge_simulation.py`).
+6. Apply temporal Butterworth filtering for smooth final markers (`6_filtering.py`).
+
+> [!NOTE]
+> *Predicted markers are generated using [Pose2Sim](https://github.com/perfanalytics/pose2sim) - further details to be released in a future update.
+
+Run the full pipeline with:
+
+```bash
+bash scripts/create_dataset.sh
+```
+
+Expected directories:
+- Human3.6M processed inputs: `data/h36m/processed/annotations/<Subject>/`
+- Predicted pseudo-markers: `data/simspine_scratch/0_Predicted/<Subject>/`
+- Final marker outputs: `data/simspine/markers/<Subject>/`
+- Kinematics outputs: `data/simspine/kinematics/<Subject>/`
+- Subject models: `data/simspine/models/<Subject>.osim`
+
+## Benchmark Dataset
+
+SIMSPINE dataset adds 3D spine keypoint annotations to Human3.6M. It augments Human3.6M with spine-aware labels using a biomechanics-aware pipeline that combines multi-view spinal detection, robust triangulation, marker merging, subject-scaled OpenSim inverse kinematics, and virtual vertebral markers.
 
 The resulting benchmark contains 2.14M frames from 7 subjects across 15 actions, and provides 15 spine-centric keypoints together with vertebral rotational parameters.
 
@@ -52,19 +82,7 @@ Supported tasks include:
 - 2D-to-3D pose lifting
 - spine reconstruction benchmarking
 
-### Dataset Snapshot
-
-| Item | Value |
-|---|---|
-| Total frames | 2.14M |
-| Train / test split | 1.56M train, 0.58M test |
-| Subjects / actions | 7 subjects, 15 actions |
-| Train subjects | S1, S5, S6, S7, S8 |
-| Test subjects | S9, S11 |
-| Spine-centric landmarks | 15 total: 9 vertebral-column points, 2 skull points, 2 clavicle points, 2 shoulder-blade points |
-| Marker set | 37 markers total: 12 Human3.6M limb points, 15 new spine points, 10 pseudo-labels on feet and face |
-| Kinematic outputs | 62 axes, including 56 Euler angles |
-| Labels | 3D vertebral positions and per-segment rotational kinematics |
+More details can be found in the [dataset documentation](./docs/dataset.md).
 
 ## Benchmark Results
 
@@ -159,6 +177,21 @@ Please also cite Human3.6M:
   title = {Latent Structured Models for Human Pose Estimation},
   booktitle = {International Conference on Computer Vision},
   year = {2011}
+}
+```
+
+and Pose2Sim:
+
+```bibtex
+@article{pagnon2021pose2sim,
+  title={Pose2Sim: an end-to-end workflow for 3D markerless sports kinematics—part 1: robustness},
+  author={Pagnon, David and Domalain, Mathieu and Reveret, Lionel},
+  journal={Sensors},
+  volume={21},
+  number={19},
+  pages={6530},
+  year={2021},
+  publisher={MDPI}
 }
 ```
 

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<OpenSimDocument Version="40500">
+	<InverseKinematicsTool>
+		<results_directory>./</results_directory>
+		<model_file>../S00_Demo_Session/S00_P00_SingleParticipant/S00_P00_OpenSim/Model_Pose2Sim_S00_P00_halpe26_scaled.osim</model_file>
+		<constraint_weight>Inf</constraint_weight>
+		<accuracy>1.0000000000000001e-05</accuracy>
+		<time_range>0.016666666666666666 1.6333333333333333</time_range>
+		<output_motion_file>../Demo_SinglePerson/pose-3d/S01_Demo_SingleTrial_0-99_filt_butterworth.mot</output_motion_file>
+		<report_errors>true</report_errors>
+		<IKTaskSet>
+			<objects>
+				<IKMarkerTask name="Nose">
+					<apply>true</apply>
+					<weight>0.1000000000000000</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="LEye">
+					<apply>true</apply>
+					<weight>0.1000000000000000</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="REye">
+					<apply>true</apply>
+					<weight>0.1000000000000000</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="LEar">
+					<apply>true</apply>
+					<weight>0.1000000000000000</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="REar">
+					<apply>true</apply>
+					<weight>0.1000000000000000</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="Head">
+					<apply>true</apply>
+					<weight>0.30000000000000001</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="Neck">
+					<apply>true</apply>
+					<weight>0.5000000000000000</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="LShoulder">
+					<apply>true</apply>
+					<weight>2</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="RShoulder">
+					<apply>true</apply>
+					<weight>2</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="LElbow">
+					<apply>true</apply>
+					<weight>1</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="RElbow">
+					<apply>true</apply>
+					<weight>1</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="LWrist">
+					<apply>true</apply>
+					<weight>1</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="RWrist">
+					<apply>true</apply>
+					<weight>1</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="Hip">
+					<apply>true</apply>
+					<weight>1</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="LHip">
+					<apply>true</apply>
+					<weight>2</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="RHip">
+					<apply>true</apply>
+					<weight>2</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="LKnee">
+					<apply>true</apply>
+					<weight>1</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="RKnee">
+					<apply>true</apply>
+					<weight>1</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="LAnkle">
+					<apply>true</apply>
+					<weight>1</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="RAnkle">
+					<apply>true</apply>
+					<weight>1</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="LBigToe">
+					<apply>true</apply>
+					<weight>1</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="LSmallToe">
+					<apply>true</apply>
+					<weight>1</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="LHeel">
+					<apply>true</apply>
+					<weight>1</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="RBigToe">
+					<apply>true</apply>
+					<weight>1</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="RSmallToe">
+					<apply>true</apply>
+					<weight>1</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="RHeel">
+					<apply>true</apply>
+					<weight>1</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="LClavicle">
+					<apply>true</apply>
+					<weight>0.3000000000000000</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="RClavicle">
+					<apply>true</apply>
+					<weight>0.3000000000000000</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="Spine_05">
+					<apply>true</apply>
+					<weight>0.5000000000000000</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="Spine_04">
+					<apply>true</apply>
+					<weight>0.5000000000000000</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="Spine_03">
+					<apply>true</apply>
+					<weight>0.5000000000000000</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="Spine_02">
+					<apply>true</apply>
+					<weight>0.5000000000000000</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="Spine_01">
+					<apply>true</apply>
+					<weight>0.5000000000000000</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="Neck_02">
+					<apply>true</apply>
+					<weight>0.5000000000000000</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="Neck_03">
+					<apply>true</apply>
+					<weight>0.5000000000000000</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="LLatissimus">
+					<apply>true</apply>
+					<weight>0.3000000000000000</weight>
+				</IKMarkerTask>
+				<IKMarkerTask name="RLatissimus">
+					<apply>true</apply>
+					<weight>0.3000000000000000</weight>
+				</IKMarkerTask>
+				<IKCoordinateTask name="L5_S1_Flex_Ext">
+					<apply>true</apply>
+					<weight>1</weight>
+					<value_type>default_value</value_type>
+					<value>0</value>
+				</IKCoordinateTask>
+			</objects>
+			<groups />
+		</IKTaskSet>
+		<marker_file>../Demo_SinglePerson/pose-3d/S01_Demo_SingleTrial_0-99_filt_butterworth.trc</marker_file>
+		<coordinate_file>Unassigned</coordinate_file>
+		<report_marker_locations>true</report_marker_locations>
+	</InverseKinematicsTool>
+</OpenSimDocument>
