@@ -1,0 +1,132 @@
+SIMSPINE Academic Research License
+
+Version 1.0
+Copyright © 2026 Augmented Vision Group,
+German Research Center for Artificial Intelligence (DFKI), Kaiserslautern, Germany.
+
+The SIMSPINE dataset is owned and distributed by the Augmented Vision Group at DFKI Kaiserslautern.
+
+1. DESCRIPTION OF THE DATASET
+SIMSPINE is a research dataset consisting of derived 3D spine keypoint annotations aligned with the Human3.6M dataset.
+
+The dataset contains:
+- 15 additional spine-related keypoints generated from Human3.6M sequences
+- simulated biomechanical outputs generated using OpenSim
+- per-subject OpenSim models (.osim)
+
+The dataset does not contain any original Human3.6M data, including:
+- videos
+- images
+- motion capture recordings
+- the original 17 Human3.6M keypoints
+
+The dataset only provides additional annotations that are frame-aligned with Human3.6M sequences.
+
+Use of SIMSPINE therefore requires independent access to the Human3.6M dataset.
+
+2. RELATIONSHIP TO HUMAN3.6M DATASET
+SIMSPINE is a derived dataset created using Human3.6M data.
+
+Human3.6M is owned by its respective authors and distributed under its own license agreement.
+
+Users of SIMSPINE must:
+- Independently obtain Human3.6M from its official source
+- Accept the Human3.6M license agreement
+- Use Human3.6M in accordance with its licensing terms
+
+The Human3.6M license can be obtained from: https://vision.imar.ro/human3.6m/
+
+Nothing in this license grants permission to access, distribute, or use Human3.6M data beyond what is permitted by the Human3.6M license.
+
+Users remain fully responsible for complying with the Human3.6M license agreement.
+
+3. GRANT OF LICENSE (ACADEMIC USE ONLY)
+SIMSPINE is provided free of charge for academic research use only.
+
+Provided the request originates from an academic or research institution, the Augmented Vision Group at DFKI grants a limited, non-exclusive, non-transferable license to use the SIMSPINE dataset for:
+- academic research
+- scientific publications
+- reproducible experiments
+
+The dataset may not be used for:
+- commercial purposes
+- product development
+- industrial applications
+
+without prior written permission from SIMSPINE and Human3.6M dataset owners.
+
+4. RESTRICTIONS
+The user agrees to the following restrictions:
+
+The dataset may not be:
+- sold
+- rented
+- leased
+- sublicensed
+- redistributed as part of another dataset
+
+The dataset may only be used by the individual or institution that obtained it.
+
+Users may distribute trained models, evaluation results, or derived research outputs, provided that:
+- the SIMSPINE dataset itself is not redistributed
+- proper citations are included.
+
+5. NO WARRANTIES
+The dataset is provided “AS IS” without any warranty of any kind.
+
+The dataset authors make no guarantees regarding:
+- accuracy
+- completeness
+- correctness
+- fitness for any particular purpose.
+
+6. LIMITATION OF LIABILITY
+In no event shall the dataset authors or their institutions be liable for any damages arising from the use of this dataset.
+
+7. RESPONSIBLE USE
+It is the user's responsibility to ensure that their use of SIMSPINE complies with:
+- this license agreement
+- the Human3.6M license
+- all applicable laws and regulations.
+
+8. REQUIRED CITATIONS
+Any publications using the SIMSPINE dataset must cite both the SIMSPINE paper and the original Human3.6M publications.
+
+SIMSPINE
+@inproceedings{khan2026simspine,
+  author = {Khan, Muhammad Saif Ullah and Stricker, Didier},
+  title = {SIMSPINE: A Biomechanics-Aware Simulation Framework for 3D Spine Motion Annotation and Benchmarking},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  month = {June},
+  year = {2026},
+}
+
+
+Human3.6M
+@article{h36m_pami,
+  author = {Ionescu, Catalin and Papava, Dragos and Olaru, Vlad and Sminchisescu, Cristian},
+  title = {Human3.6M: Large Scale Datasets and Predictive Methods for 3D Human Sensing in Natural Environments},
+  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  publisher = {IEEE Computer Society},
+  year = {2014}
+}
+@inproceedings{IonescuSminchisescu11,
+  author = {Catalin Ionescu, Fuxin Li, Cristian Sminchisescu},
+  title = {Latent Structured Models for Human Pose Estimation},
+  booktitle = {International Conference on Computer Vision},
+  year = {2011}
+}
+
+Citing the dataset URL alone does not satisfy the citation requirement.
+
+9. ACCEPTANCE OF THIS LICENSE
+Any use of the SIMSPINE dataset constitutes acceptance of this license agreement.
+
+10. CONTACT
+For questions, permissions, or commercial licensing inquiries, please contact:
+
+Augmented Vision Group
+German Research Center for Artificial Intelligence (DFKI)
+Kaiserslautern, Germany
+
+Email: muhammad_saif_ullah.khan@dfki.de

@@ -3,8 +3,10 @@
 <div align="center">
 
 [![Home](https://img.shields.io/badge/Project-Homepage-pink.svg)](https://saifkhichi.com/research/simspine/)
+[![Paper PDF](https://img.shields.io/badge/Paper-PDF-red.svg)](https://arxiv.org/pdf/2602.20792)
 [![arXiv](https://img.shields.io/badge/arXiv-2602.20792-B31B1B.svg)](https://arxiv.org/abs/2602.20792)
 [![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-1f6feb.svg)](https://huggingface.co/datasets/dfki-av/simspine)
+[![Inference](https://img.shields.io/badge/Inference-SpinePose-blue.svg)](https://github.com/dfki-av/spinepose)
 
 ![SIMSPINE Teaser](teaser.gif)
 </div>
@@ -17,33 +19,171 @@
 
 Official repository for the CVPR 2026 paper "SIMSPINE: A Biomechanics-Aware Simulation Framework for 3D Spine Motion Annotation and Benchmarking" by Muhammad Saif Ullah Khan and Didier Stricker.
 
-SIMSPINE augments Human3.6M with spine-aware 3D annotations using a biomechanics-aware pipeline that combines multi-view spinal detection, robust triangulation, marker merging, subject-scaled OpenSim inverse kinematics, and virtual vertebral markers. The resulting benchmark contains 2.14M frames from 7 subjects across 15 actions, and provides 15 spine-centric keypoints together with vertebral rotational parameters.
+- [SIMSPINE Benchmark Dataset](#simspine-benchmark-dataset)
+- [Benchmark Results](#benchmark-results)
+- [Limitations and Intended Use](#limitations-and-intended-use)
+- [Licensing](#licensing)
+- [Citation](#citation)
+- [Acknowledgement](#acknowledgement)
+- [Release Roadmap](#release-roadmap)
 
-The current release is organized around three benchmark tasks:
-- 2D spine keypoint estimation from RGB
-- Multi-view 3D spine reconstruction
-- Monocular 2D-to-3D lifting
+### Release Notes
 
-Selected paper-level results:
-- Indoor 2D performance improves from 0.63 to 0.80 AUC after fine-tuning with SIMSPINE
-- Outdoor spine tracking improves from 0.91 to 0.93 APS
+- **2026-03-23**: SpinePose-SIMSPINE ONNX models for 2D pose estimation released via the [SpinePose inference library](https://github.com/dfki-av/spinepose) in [v2.0.1](https://github.com/dfki-av/spinepose/tree/v2.0.1)
+- **2026-03-10**: Release PyTorch checkpoints for 2D (SpinePose, ViTPose, HRNet) and 2D-to-3D lifting baselines
+
+## SIMSPINE Benchmark Dataset
+
+SIMSPINE is a dataset of additional 3D spine keypoint annotations derived from Human3.6M. It augments Human3.6M with spine-aware labels using a biomechanics-aware pipeline that combines multi-view spinal detection, robust triangulation, marker merging, subject-scaled OpenSim inverse kinematics, and virtual vertebral markers.
+
+The resulting benchmark contains 2.14M frames from 7 subjects across 15 actions, and provides 15 spine-centric keypoints together with vertebral rotational parameters.
+
+Important scope note:
+- SIMSPINE does not redistribute original Human3.6M images, videos, mocap data, or original Human3.6M joint annotations.
+- It provides additional annotations aligned to Human3.6M frames.
+- Users must obtain Human3.6M independently: https://vision.imar.ro/human3.6m/
+
+Supported tasks include:
+- 2D human pose estimation
+- 3D human pose estimation
+- spine pose estimation
+- human motion analysis
+- biomechanics-aware modeling
+- 2D-to-3D pose lifting
+- spine reconstruction benchmarking
+
+### Dataset Snapshot
+
+| Item | Value |
+|---|---|
+| Total frames | 2.14M |
+| Train / test split | 1.56M train, 0.58M test |
+| Subjects / actions | 7 subjects, 15 actions |
+| Train subjects | S1, S5, S6, S7, S8 |
+| Test subjects | S9, S11 |
+| Spine-centric landmarks | 15 total: 9 vertebral-column points, 2 skull points, 2 clavicle points, 2 shoulder-blade points |
+| Marker set | 37 markers total: 12 Human3.6M limb points, 15 new spine points, 10 pseudo-labels on feet and face |
+| Kinematic outputs | 62 axes, including 56 Euler angles |
+| Labels | 3D vertebral positions and per-segment rotational kinematics |
+
+## Benchmark Results
+
+### Key Results
+
+| Task | Setting | Result |
+|---|---|---|
+| 2D pose estimation | Best indoor result on SIMSPINE | **0.803 AUC** (SpinePose-l-ft) |
+| 2D pose estimation | Best outdoor spine tracking on SpineTrack | **0.928 AP^S / 0.937 AR^S** (SpinePose-m-ft) |
+| Multi-view 3D reconstruction | Fine-tuned 2D detections | **31.82 mm MPJPE** and **29.53 mm P-MPJPE** (full skeleton) |
+| Multi-view 3D reconstruction | Oracle setting with GT 2D | **7.85 mm MPJPE** and **1.79 mm P-MPJPE** (full skeleton) |
+| Monocular 3D lifting | Detected 2D, full-body training | **16.28 mm P-MPJPE** (spine joints) |
+| Monocular 3D lifting | GT 2D, full-body training | **13.48 mm P-MPJPE** and **25.94 mm MPJPE** (spine joints) |
+
+### 2D spine keypoint estimation from RGB
+
+| Method | Pretrain | Finetune | AP^B | AR^B | AP^S | AR^S | AUC | Model Links |
+|---|---|---|---:|---:|---:|---:|---:|---|
+| SpinePose-s | SpineTrack | - | 0.792 | 0.821 | 0.896 | 0.908 | 0.611 | [PyTorch](https://huggingface.co/dfki-av/spinepose/resolve/main/spinetrack/pytorch/spinepose-s_32xb256-10e_spinetrack-256x192.pth) · [ONNX](https://huggingface.co/dfki-av/spinepose/resolve/main/spinepose-s_32xb256-10e_spinetrack-256x192.onnx) |
+| SpinePose-m | SpineTrack | - | 0.840 | 0.864 | 0.914 | 0.926 | 0.633 | [PyTorch](https://huggingface.co/dfki-av/spinepose/resolve/main/spinetrack/pytorch/spinepose-m_32xb256-10e_spinetrack-256x192.pth) · [ONNX](https://huggingface.co/dfki-av/spinepose/resolve/main/spinepose-m_32xb256-10e_spinetrack-256x192.onnx) |
+| SpinePose-l | SpineTrack | - | **0.854** | **0.877** | 0.910 | 0.922 | 0.633 | [PyTorch](https://huggingface.co/dfki-av/spinepose/resolve/main/spinetrack/pytorch/spinepose-l_32xb256-10e_spinetrack-256x192.pth) · [ONNX](https://huggingface.co/dfki-av/spinepose/resolve/main/spinepose-l_32xb256-10e_spinetrack-256x192.onnx) |
+| SpinePose-s-ft | SpineTrack | SIMSPINE | 0.788 | 0.815 | 0.920 | 0.929 | 0.790 | [PyTorch](https://huggingface.co/dfki-av/spinepose/resolve/main/simspine/2d/pytorch/spinepose-s_32xb256-10e_simspine-256x192.pth) · [ONNX](https://huggingface.co/dfki-av/spinepose/resolve/main/spinepose-s_32xb256-10e_simspine-256x192.onnx) |
+| SpinePose-m-ft | SpineTrack | SIMSPINE | 0.821 | 0.846 | **0.928** | **0.937** | 0.798 | [PyTorch](https://huggingface.co/dfki-av/spinepose/resolve/main/simspine/2d/pytorch/spinepose-m_32xb256-10e_simspine-256x192.pth) · [ONNX](https://huggingface.co/dfki-av/spinepose/resolve/main/spinepose-m_32xb256-10e_simspine-256x192.onnx) |
+| SpinePose-l-ft | SpineTrack | SIMSPINE | 0.840 | 0.862 | 0.917 | 0.927 | **0.803** | [PyTorch](https://huggingface.co/dfki-av/spinepose/resolve/main/simspine/2d/pytorch/spinepose-l_32xb256-10e_simspine-256x192.pth) · [ONNX](https://huggingface.co/dfki-av/spinepose/resolve/main/spinepose-l_32xb256-10e_simspine-256x192.onnx) |
+| HRNet-w32 | COCO | SIMSPINE | 0.776 | 0.806 | 0.905 | 0.918 | 0.769 | [PyTorch](https://huggingface.co/dfki-av/spinepose/resolve/main/simspine/2d/pytorch/td-hm_hrnet-w32_8xb64-10e_simspine-256x192.pth) · ONNX |
+| RTMPose-m | COCO | SIMSPINE | 0.832 | 0.858 | 0.925 | 0.935 | 0.794 | PyTorch · ONNX |
+| ViTPose-b | COCO | SIMSPINE | 0.835 | 0.866 | 0.921 | 0.933 | 0.794 | [PyTorch](https://huggingface.co/dfki-av/spinepose/resolve/main/simspine/2d/pytorch/td-hm_ViTPose-base_8xb64-10e_simspine-256x192.pth) · ONNX |
+
+
+### Multi-view 3D spine reconstruction
+
 - Fine-tuned multi-view triangulation reaches 31.82 mm MPJPE and 29.53 mm P-MPJPE
+- Oracle setting with GT 2D reaches 7.85 mm MPJPE and 1.79 mm P-MPJPE
+- Fine-tuning 2D detector quality reduces full-skeleton MPJPE from 49.30 mm to 31.82 mm
+
+### Monocular 2D-to-3D lifting
+
 - Full-body monocular lifting outperforms spine-only lifting, reaching 16.28 mm P-MPJPE with detected 2D input
+- With GT 2D input, full-body lifting reaches 13.48 mm P-MPJPE and 25.94 mm MPJPE on spine joints
+- Ablation takeaway: using only 2% of SIMSPINE (~31k indoor images) already provides near-saturated 2D performance
 
-For the full paper, figures, and project summary, please refer to the [project homepage](https://saifkhichi.com/research/simspine/) and the [arXiv preprint](https://arxiv.org/abs/2602.20792).
+## Limitations and Intended Use
 
-## Roadmap
+- The benchmark is simulation-derived and should be treated as a scalable proxy for method development, not direct clinical measurement.
+- The lumbar spine is detailed, while thoracic and cervical regions are simplified for identifiability from RGB.
+- Intervertebral translations, rib-cage coupling, and force-consistent dynamics are not modeled.
+- The visual domain comes from Human3.6M, so appearance diversity and pathology coverage are limited.
+- Recommended use: pretraining, benchmarking, and controlled development before fine-tuning on smaller biomechanically validated datasets.
 
-- [ ] Release SIMSPINE dataset on [HuggingFace](https://huggingface.co/datasets/dfki-av/simspine)
+## Licensing
+
+SIMSPINE is released under the [SIMSPINE Academic Research License](LICENSE).
+
+Key conditions:
+- Academic research use only
+- No redistribution of the dataset
+- Proper citation required
+
+SIMSPINE is a derived dataset from Human3.6M. Users must also comply with the Human3.6M license agreement: https://vision.imar.ro/human3.6m/
+
+Out-of-scope uses:
+- clinical diagnosis
+- medical decision making
+- commercial products without permission
+
+## Citation
+
+If you use SIMSPINE, please cite:
+
+```bibtex
+@inproceedings{khan2026simspine,
+  author = {Khan, Muhammad Saif Ullah and Stricker, Didier},
+  title = {SIMSPINE: A Biomechanics-Aware Simulation Framework for 3D Spine Motion Annotation and Benchmarking},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  month = {June},
+  year = {2026},
+}
+```
+
+Please also cite Human3.6M:
+
+```bibtex
+@article{h36m_pami,
+  author = {Ionescu, Catalin and Papava, Dragos and Olaru, Vlad and Sminchisescu, Cristian},
+  title = {Human3.6M: Large Scale Datasets and Predictive Methods for 3D Human Sensing in Natural Environments},
+  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year = {2014}
+}
+
+@inproceedings{IonescuSminchisescu11,
+  author = {Catalin Ionescu, Fuxin Li, Cristian Sminchisescu},
+  title = {Latent Structured Models for Human Pose Estimation},
+  booktitle = {International Conference on Computer Vision},
+  year = {2011}
+}
+```
+
+## Acknowledgement
+
+SIMSPINE builds upon the Human3.6M dataset created by Catalin Ionescu, Dragos Papava, Vlad Olaru, and Cristian Sminchisescu.
+
+## Release Roadmap
+
+- [ ] Release SIMSPINE as a gated dataset on [HuggingFace](https://huggingface.co/datasets/dfki-av/simspine)
 - [ ] Release ONNX models for inference via the [SpinePose library](https://github.com/dfki-av/spinepose)
   - [ ] 2D Models
-    - [ ] SpinePose-SIMSPINE (small, medium, large)
+    - [x] ~~SpinePose-SIMSPINE (small, medium, large)~~
     - [ ] HRNet-SIMSPINE (w32)
     - [ ] RTMPose-SIMSPINE (medium)
     - [ ] ViTPose-SIMSPINE (base)
   - [ ] 2D-to-3D Lifting Model
-- [ ] Release Pytorch checkpoints and evaluation config files
-- [ ] Release evaluation code
+- [ ] Release all Pytorch checkpoints
+  - [ ] 2D Models
+    - [x] ~~SpinePose-SIMSPINE (small, medium, large)~~
+    - [x] ~~HRNet-SIMSPINE (w32)~~
+    - [ ] RTMPose-SIMSPINE (medium)
+    - [x] ~~ViTPose-SIMSPINE (base)~~
+  - [x] ~~2D-to-3D Lifting Model~~
+- [ ] Release model configs and evaluation code
   - [ ] 2D Pose Estimation
   - [ ] 2D-to-3D Lifting
   - [ ] Multiview 3D Triangulation
