@@ -2,10 +2,12 @@
 
 <div align="center">
 
-[![Home](https://img.shields.io/badge/Project-Homepage-pink.svg)](https://saifkhichi.com/research/simspine/)
-[![Paper PDF](https://img.shields.io/badge/Paper-PDF-red.svg)](https://arxiv.org/pdf/2602.20792)
-[![arXiv](https://img.shields.io/badge/arXiv-2602.20792-B31B1B.svg)](https://arxiv.org/abs/2602.20792)
-[![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-1f6feb.svg)](https://huggingface.co/datasets/dfki-av/simspine)
+
+
+[![Home](https://img.shields.io/badge/Project-Page-000000.svg)](https://saifkhichi.com/research/simspine/)
+[![Inference Demo](https://img.shields.io/badge/HF-Demo-FFD21E?logo=huggingface&logoColor=FFD21E)](https://huggingface.co/spaces/dfki-av/spinepose-demo)
+[![arXiv](https://img.shields.io/badge/arXiv-2602.20792-B31B1B)](https://arxiv.org/abs/2602.20792)
+[![SIMSPINE Dataset](https://img.shields.io/badge/Dataset-SIMSPINE-FFC83D.svg)](https://huggingface.co/datasets/dfki-av/simspine)
 [![Inference](https://img.shields.io/badge/Inference-SpinePose-blue.svg)](https://github.com/dfki-av/spinepose)
 
 ![SIMSPINE Teaser](teaser.gif)
@@ -30,6 +32,7 @@ Official repository for the CVPR 2026 paper "SIMSPINE: A Biomechanics-Aware Simu
 
 ### Release Notes
 
+- **2026-03-27**: HuggingFace 🤗 demo [released](https://huggingface.co/spaces/dfki-av/spinepose-demo)
 - **2026-03-24**: Released the SIMSPINE [simulation framework](./src/simspine/data_generation), added end-to-end dataset build script `scripts/create_dataset.sh`, and released the SIMSPINE dataset on [HuggingFace](https://huggingface.co/datasets/dfki-av/simspine)
 - **2026-03-23**: SpinePose-SIMSPINE ONNX models for 2D pose estimation released via the [SpinePose inference library](https://github.com/dfki-av/spinepose) in [v2.0.1](https://github.com/dfki-av/spinepose/tree/v2.0.1)
 - **2026-03-10**: Release PyTorch checkpoints for 2D (SpinePose, ViTPose, HRNet) and 2D-to-3D lifting baselines
