@@ -171,6 +171,7 @@ If you use SIMSPINE, please cite:
   booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
   month = {June},
   year = {2026},
+  pages = {21176-21187}
 }
 ```
 
@@ -213,7 +214,7 @@ SIMSPINE builds upon the Human3.6M dataset created by Catalin Ionescu, Dragos Pa
 
 ## Release Roadmap
 
-- [ ] Release SIMSPINE as a gated dataset on [HuggingFace](https://huggingface.co/datasets/dfki-av/simspine)
+- [x] Release SIMSPINE as a gated dataset on [HuggingFace](https://huggingface.co/datasets/dfki-av/simspine)
 - [ ] Release ONNX models for inference via the [SpinePose library](https://github.com/dfki-av/spinepose)
   - [ ] 2D Models
     - [x] ~~SpinePose-SIMSPINE (small, medium, large)~~
